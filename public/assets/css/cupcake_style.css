@@ -1,0 +1,38 @@
+body {
+    background-image: url("../img/photo-1486427944299-d1955d23e34d.jpeg");
+    height: 100%;
+    width: 90%;
+    margin: auto;
+    font-family: 'Handlee', cursive;
+}
+
+#title {
+    text-align: center;
+    width: fit-content;
+    padding: 20px;
+    margin: auto;
+    justify-self: center;
+    font-family: 'Berkshire Swash', cursive;
+}
+
+#cupcake-lists-container {
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    background-color: rgba(255, 158, 174, 0.831);
+    margin: 5px;
+    color: antiquewhite;
+}
+
+.container {
+    text-align: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+#add-cupcake {
+    background-color: antiquewhite;
+    padding: 15px;
+}

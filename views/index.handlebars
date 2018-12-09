@@ -1,53 +1,48 @@
-<h1>Cupcakes!</h1>
+<h1 id="title">Cupcakes!</h1>
 
-<h2>Cupcakes that are not devoured!</h2>
+<div id="cupcake-lists-container">
+    <div class="container" id="cupcakes-to-eat">
+        <h2>Cupcakes I Haven't Eaten!</h2>
 
-<ul>
-    {{#each cupcakes}}
-    {{#unless devoured}}
-    {{!-- {{> cupcakes/cupcake-block devoured=true}} --}}
-	{{cupcake_name}}
-
-	<button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
-		{{#if devoured}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
-	</button>
-    {{/unless}}
-    <li>
-        {{name}}
-
-
-    </li>
-    {{/each}}
-</ul>
-
-<h2>Cupcakes that are devoured!</h2>
-
-<ul>
-    {{#each cupcakes}}
-    {{#if devoured}}
-    {{!-- {{> cupcakes/cupcake-block devoured=false}} --}}
-	{{cupcake_name}}
-
-	<button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
-		{{#if devoured}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
-	</button>
-    {{/if}}
-    {{/each}}
-</ul>
-
-<h2>Add a Cupcake</h2>
-<form class="create-form">
-
-    <div class="form-group">
-        <label for="ca">Cupcake Name:</label>
-        <input type="text" id="ca" name="cupcake_name">
+        <ul>
+            {{#each cupcakes}}
+            {{#unless devoured}}
+            {{> cupcakes/cupcake-block devoured=true}}
+            {{/unless}}
+            {{/each}}
+        </ul>
     </div>
 
-    <div class="form-group">
-        <label for="devoured">Devoured?</label><br>
-        <input type="radio" name="devoured" value="1" checked> devoured!<br>
-        <input type="radio" name="devoured" value="0"> not yet devoured!
+    <div class="container" id="add-cupcake">
+
+        <h2>Add a Cupcake</h2>
+        <form class="create-form">
+
+            <div class="form-group">
+                <label for="cupcake_name">Cupcake Name:</label>
+                <input type="text" id="cupcake_name" name="cupcake_name">
+            </div>
+
+            <div class="form-group">
+                <label for="devoured">Devoured?</label><br>
+                <input type="radio" name="devoured" value="1" checked> Devoured!<br>
+                <input type="radio" name="devoured" value="0"> Not Yet Devoured!
+            </div>
+
+            <button type="submit">Add Cupcake</button>
+        </form>
     </div>
 
-    <button type="submit">Add Cupcake</button>
-</form>
+    <div class="container" id="eaten-cupcakes">
+
+        <h2>Cupcakes That Are Devoured!</h2>
+
+        <ul>
+            {{#each cupcakes}}
+            {{#if devoured}}
+            {{> cupcakes/cupcake-block devoured=false}}
+            {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+</div>
